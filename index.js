@@ -8,7 +8,8 @@ const engineerQuestions = questions.engineerQuestions;
 const internQuestions = questions.internQuestions;
 const addMember = questions.addMember;
 
-const companyTeam = []
+// Array to store employee information
+const myTeam = []
 
 // Function to prompt for manager employee properties
 const askManager = () => {
@@ -20,9 +21,9 @@ const askManager = () => {
                 response.managerEmail,
                 response.managerOffice
             );
-            companyTeam.push(manager);
+            myTeam.push(manager);
             console.log("-----Manager add to team!-----");
-            console.log(companyTeam);
+            console.log(myTeam);
             askAddMember();
         })
 }
@@ -37,9 +38,9 @@ const askEngineer = () => {
             response.engineerEmail,
             response.engineerGitHub
         );
-        companyTeam.push(engineer);
+        myTeam.push(engineer);
         console.log("-----Engineer add to team!-----");
-        console.log(companyTeam);
+        console.log(myTeam);
         askAddMember();
     })
 }
@@ -54,9 +55,9 @@ const askIntern = () => {
             response.internEmail,
             response.internSchool
         );
-        companyTeam.push(intern);
+        myTeam.push(intern);
         console.log("-----Intern add to team!-----");
-        console.log(companyTeam);
+        console.log(myTeam);
         askAddMember();
     })
 }
