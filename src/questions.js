@@ -1,3 +1,4 @@
+// Prompts for creating manager employee
 const managerQuestions = [
     {
         type: "input",
@@ -21,6 +22,7 @@ const managerQuestions = [
     },
 ]
 
+// Prompts for creating engineer employee
 const engineerQuestions = [
     {
         type: "input",
@@ -44,6 +46,7 @@ const engineerQuestions = [
     },
 ]
 
+// Prompts for creating intern employee
 const internQuestions = [
     {
         type: "input",
@@ -67,6 +70,7 @@ const internQuestions = [
     },
 ]
 
+// Prompt for deciding whether to add engineers or interns to team
 const addMember = [
     {
         type: "list",
