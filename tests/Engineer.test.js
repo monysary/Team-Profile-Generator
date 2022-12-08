@@ -24,4 +24,14 @@ describe("Engineer", () => {
         const testObj = new engineer("Billy Bob", 789, "BillyBob@gmail.com", gitHub);
         expect(testObj.gitHub).toBe(gitHub);
     })
+    
+    it("Tests if engineer getGitHub method returns engineer's GitHub username", () => {
+        const testObj = new engineer("Billy Bob", 789, "BillyBob@gmail.com", "billybob");
+        expect(testObj.getGitHub()).toBe("billybob");
+    })
+    
+    it("Tests if engineer getRole method returns 'Engineer'", () => {
+        const testObj = new engineer("Billy Bob", 789, "BillyBob@gmail.com", "billybob");
+        expect(testObj.getRole()).toBe("Engineer");
+    })
 })

@@ -24,4 +24,14 @@ describe("Intern", () => {
         const testObj = new intern("Tom Timmy", 321, "TomTimmy@gmail.com", school);
         expect(testObj.school).toBe(school);
     })
+    
+    it("Tests if intern getSchool method returns intern's school", () => {
+        const testObj = new intern("Tom Timmy", 321, "TomTimmy@gmail.com", "The University");
+        expect(testObj.getSchool()).toBe("The University");
+    })
+    
+    it("Tests if intern getRole method returns 'Intern'", () => {
+        const testObj = new intern("Tom Timmy", 321, "TomTimmy@gmail.com", "The University");
+        expect(testObj.getRole()).toBe("Intern");
+    })
 })

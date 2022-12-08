@@ -24,4 +24,9 @@ describe("Manager", () => {
         const testObj = new manager("Jane Doe", 456, "JaneDoe@gmail.com", officeNumber);
         expect(testObj.officeNumber).toBe(officeNumber);
     })
+
+    it("Tests if manager getRole method returns 'Manager'", () => {
+        const testObj = new manager("Jane Doe", 456, "JaneDoe@gmail.com", 101);
+        expect(testObj.getRole()).toBe("Manager");
+    })
 })
