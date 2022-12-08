@@ -1,4 +1,4 @@
-const questions = [
+const employeeQuestions = [
     {
         type: "input",
         message: "What is the manager's name?",
@@ -23,8 +23,11 @@ const questions = [
         type: "list",
         message: "What team members would you like to add?",
         name: "teamMember",
-        choices: "Engineer, Intern, None"
-    },
+        choices: ["Engineer", "Intern", "I'm done"]
+    }
+]
+
+const engineerQuestions = [
     {
         type: "input",
         message: "What is the engineer's name?",
@@ -46,6 +49,15 @@ const questions = [
         name: "engineerGitHub"
     },
     {
+        type: "list",
+        message: "What team members would you like to add?",
+        name: "teamMember",
+        choices: ["Engineer", "Intern", "I'm done"]
+    }
+]
+
+const internQuestions = [
+    {
         type: "input",
         message: "What is the intern's name?",
         name: "internName"
@@ -65,4 +77,16 @@ const questions = [
         message: "What is the intern's school name?",
         name: "internSchool"
     },
+    {
+        type: "list",
+        message: "What team members would you like to add?",
+        name: "teamMember",
+        choices: ["Engineer", "Intern", "I'm done"]
+    }
 ]
+
+module.exports = {
+    employeeQuestions,
+    engineerQuestions,
+    internQuestions
+}
