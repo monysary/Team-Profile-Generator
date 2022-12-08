@@ -19,9 +19,10 @@ const askManager = () => {
                 response.managerID,
                 response.managerEmail,
                 response.managerOffice
-            )
-            console.log("Manager add to team!");
-            console.log(manager);
+            );
+            companyTeam.push(manager);
+            console.log("-----Manager add to team!-----");
+            console.log(companyTeam);
             askAddMember();
         })
 }
@@ -35,9 +36,10 @@ const askEngineer = () => {
             response.engineerID,
             response.engineerEmail,
             response.engineerGitHub
-        )
-        console.log("Engineer add to team!");
-        console.log(engineer);
+        );
+        companyTeam.push(engineer);
+        console.log("-----Engineer add to team!-----");
+        console.log(companyTeam);
         askAddMember();
     })
 }
@@ -51,9 +53,10 @@ const askIntern = () => {
             response.internID,
             response.internEmail,
             response.internSchool
-        )
-        console.log("Intern add to team!");
-        console.log(intern);
+        );
+        companyTeam.push(intern);
+        console.log("-----Intern add to team!-----");
+        console.log(companyTeam);
         askAddMember();
     })
 }
