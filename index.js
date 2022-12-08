@@ -1,26 +1,49 @@
 const inquirer = require("inquirer");
 const questions = require("./src/questions");
-const employeeQuestions = questions.employeeQuestions;
+const managerQuestions = questions.managerQuestions;
 const engineerQuestions = questions.engineerQuestions;
 const internQuestions = questions.internQuestions;
+const addMember = questions.addMember;
 
-inquirer.prompt(employeeQuestions)
+const askManager = () => {
+    inquirer.prompt(managerQuestions)
+        .then((response) => {
+            console.log("Manager created!");
+            askAddMember();
+        })
+}
+
+const askEngineer = () => {
+    inquirer.prompt(engineerQuestions)
+    .then((response) => {
+        console.log("Engineer created!");
+        askAddMember();
+    })
+}
+
+const askIntern = () => {
+    inquirer.prompt(internQuestions)
+    .then((response) => {
+        console.log("Intern created!");
+        askAddMember();
+    })
+}
+
+const askAddMember = () => {
+    inquirer.prompt(addMember)
     .then((response) => {
         switch (response.teamMember) {
             case "Engineer":
-                inquirer.prompt(engineerQuestions)
-                    .then((response) => {
-                        
-                    })
+                askEngineer();
                 break
             case "Intern":
-                inquirer.prompt(internQuestions)
-                    .then((response) => {
-                        
-                    })
+                askIntern();
                 break
             case "I'm done":
                 console.log("Generating HTML file...");
                 break
         }
     })
+}
+
+askManager()

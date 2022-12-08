@@ -1,4 +1,4 @@
-const employeeQuestions = [
+const managerQuestions = [
     {
         type: "input",
         message: "What is the manager's name?",
@@ -19,12 +19,6 @@ const employeeQuestions = [
         message: "What is the manager's office number?",
         name: "managerOffice"
     },
-    {
-        type: "list",
-        message: "What team members would you like to add?",
-        name: "teamMember",
-        choices: ["Engineer", "Intern", "I'm done"]
-    }
 ]
 
 const engineerQuestions = [
@@ -48,12 +42,6 @@ const engineerQuestions = [
         message: "What is the engineer's GitHub username?",
         name: "engineerGitHub"
     },
-    {
-        type: "list",
-        message: "What team members would you like to add?",
-        name: "teamMember",
-        choices: ["Engineer", "Intern", "I'm done"]
-    }
 ]
 
 const internQuestions = [
@@ -77,6 +65,9 @@ const internQuestions = [
         message: "What is the intern's school name?",
         name: "internSchool"
     },
+]
+
+const addMember = [
     {
         type: "list",
         message: "What team members would you like to add?",
@@ -86,7 +77,8 @@ const internQuestions = [
 ]
 
 module.exports = {
-    employeeQuestions,
+    managerQuestions,
     engineerQuestions,
-    internQuestions
+    internQuestions,
+    addMember
 }
