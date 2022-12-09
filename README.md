@@ -27,7 +27,7 @@ Once the team building is done, the generator will create an HTML file with the 
 
 Restarting the generator will replace any previously rendered HTML file with a new one.
 
-Demo video: 
+Demo video: https://drive.google.com/file/d/1_NQDJjciZDIMMqBBpWtl8epdg-P7VzIf/view
 
 ## Credits
 Inquirer Node Package
