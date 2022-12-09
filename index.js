@@ -17,6 +17,7 @@ const internTeam = [];
 
 // Function to prompt for manager employee properties
 const askManager = () => {
+    console.log("Answer the questions below to create your team!");
     inquirer.prompt(managerQuestions)
         .then((response) => {
             const manager = new Manager(
