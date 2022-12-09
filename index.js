@@ -11,7 +11,9 @@ const addMember = questions.addMember;
 const fs = require("fs");
 
 // Array to store employee information
-const myTeam = [];
+const managerTeam = [];
+const engineerTeam = [];
+const internTeam = [];
 
 // Function to prompt for manager employee properties
 const askManager = () => {
@@ -23,7 +25,7 @@ const askManager = () => {
                 response.managerEmail,
                 response.managerOffice
             );
-            myTeam.push(manager);
+            managerTeam.push(manager);
             console.log("-----Manager add to team!-----");
             askAddMember();
         })
@@ -39,7 +41,17 @@ const askEngineer = () => {
                 response.engineerEmail,
                 response.engineerGitHub
             );
-            myTeam.push(engineer);
+            const makeEngineer =
+                `
+            <div class="feature col shadow-lg">
+            <div><i class="fi fi-sr-settings"></i></div>
+            <h2>${engineer.name}</h2>
+            <p>ID: ${engineer.id}</p>
+            <p>Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+            <p>GitHub: <a href="https://github.com/${engineer.gitHub}">${engineer.gitHub}</a></p>
+            </div>
+            `
+            engineerTeam.push(makeEngineer);
             console.log("-----Engineer add to team!-----");
             askAddMember();
         })
@@ -55,7 +67,17 @@ const askIntern = () => {
                 response.internEmail,
                 response.internSchool
             );
-            myTeam.push(intern);
+            const makeIntern =
+                `
+            <div class="feature col shadow-lg">
+            <div><i class="fi fi-sr-backpack"></i></div>
+            <h2>${intern.name}</h2>
+            <p>ID: ${intern.id}</p>
+            <p>Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
+            <p>School: ${intern.school}</p>
+            </div>
+            `
+            internTeam.push(makeIntern);
             console.log("-----Intern add to team!-----");
             askAddMember();
         })
@@ -74,15 +96,11 @@ const askAddMember = () => {
                     break
                 case "I'm done":
                     console.log("Generating HTML file...");
+                    console.log(managerTeam);
                     generateHTML();
                     break
             }
         })
-}
-
-// Function to add employees into HTML file
-const generateTeam = () => {
-
 }
 
 // Function to build HTML file
@@ -112,6 +130,10 @@ const generateHTML = () => {
                 i {
                     font-size: 100px;
                 }
+
+                .row {
+                    gap: 20px;
+                }
             </style>
         </head>
         
@@ -125,40 +147,28 @@ const generateHTML = () => {
                 <div class="b-example-divider"></div>
                 <div class="container  px-4 py-5">
                     <h2 class="pb-2 border-bottom">Managers</h2>
-                    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" id="manager">
+                    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
                         <div class="feature col shadow-lg">
                             <div><i class="fi fi-sr-briefcase"></i></div>
-                            <h2>Name</h2>
-                            <p>ID: 123</p>
-                            <p>Email: <a href="mailto:email@gmail.com">email@gmail.com</a></p>
-                            <p>Office: 101</p>
+                            <h2>${managerTeam[0].name}</h2>
+                            <p>ID: ${managerTeam[0].id}</p>
+                            <p>Email: <a href="mailto:${managerTeam[0].email}">${managerTeam[0].email}</a></p>
+                            <p>Office: ${managerTeam[0].officeNumber}</p>
                         </div>
                     </div>
                 </div>
                 <div class="b-example-divider"></div>
                 <div class="container  px-4 py-5">
                     <h2 class="pb-2 border-bottom">Engineers</h2>
-                    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" id="engineer">
-                        <div class="feature col shadow-lg">
-                            <div><i class="fi fi-sr-settings"></i></div>
-                            <h2>Name</h2>
-                            <p>ID: 123</p>
-                            <p>Email: <a href="mailto:email@gmail.com">email@gmail.com</a></p>
-                            <p>GitHub: <a href="https://github.com/username">username</a></p>
-                        </div>
+                    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    ${engineerTeam.join("")}
                     </div>
                 </div>
                 <div class="b-example-divider"></div>
                 <div class="container  px-4 py-5">
                     <h2 class="pb-2 border-bottom">Interns</h2>
-                    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" id="intern">
-                        <div class="feature col shadow-lg">
-                            <div><i class="fi fi-sr-backpack"></i></div>
-                            <h2>Name</h2>
-                            <p>ID: 123</p>
-                            <p>Email: <a href="mailto:email@gmail.com">email@gmail.com</a></p>
-                            <p>School: University</p>
-                        </div>
+                    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    ${internTeam.join("")}
                     </div>
                 </div>
                 <div class="b-example-divider"></div>
@@ -184,6 +194,4 @@ const generateHTML = () => {
         (error) => error ? console.error(error) : console.log("HTML file generated!"))
 }
 
-// askManager()
-generateHTML()
-// generateTeam()
+askManager()
