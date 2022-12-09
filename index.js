@@ -96,7 +96,6 @@ const askAddMember = () => {
                     break
                 case "I'm done":
                     console.log("Generating HTML file...");
-                    console.log(managerTeam);
                     generateHTML();
                     break
             }
