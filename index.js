@@ -1,3 +1,4 @@
+// Declaring all necessary modules and tools
 const inquirer = require("inquirer");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -7,6 +8,7 @@ const managerQuestions = questions.managerQuestions;
 const engineerQuestions = questions.engineerQuestions;
 const internQuestions = questions.internQuestions;
 const addMember = questions.addMember;
+const fs = require("fs");
 
 // Array to store employee information
 const myTeam = []
@@ -75,9 +77,25 @@ const askAddMember = () => {
                 break
             case "I'm done":
                 console.log("Generating HTML file...");
+                generateHTML();
                 break
         }
     })
 }
 
-askManager()
+// Function to build HTML file
+const generateHTML = () => {
+    fs.writeFile("./dist/index.html", 
+    `
+    // TODO: Add html code here
+    `,
+    (error) => error ? console.error(error) : console.log("HTML file generated!"))
+}
+
+// Function to add employees into HTML file
+const generateTeam = () => {
+    
+}
+
+// askManager()
+generateHTML()
